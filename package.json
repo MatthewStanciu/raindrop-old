@@ -6,12 +6,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^4.7.0",
+    "@supabase/supabase-auth-helpers": "^1.4.2",
+    "@supabase/supabase-js": "^1.35.3",
+    "@supabase/ui": "^0.36.5",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@types/node": "17.0.4",
+    "@types/node": "^17.0.34",
     "@types/react": "17.0.38",
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.5",
