@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^4.7.0",
+    "@octokit/rest": "^18.12.0",
     "@supabase/supabase-auth-helpers": "^1.4.2",
     "@supabase/supabase-js": "^1.35.3",
     "@supabase/ui": "^0.36.5",
