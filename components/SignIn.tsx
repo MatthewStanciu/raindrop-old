@@ -16,7 +16,7 @@ const SignIn = () => (
           e.preventDefault()
           await supabaseClient.auth.signIn(
             {
-              provider: 'github',
+              provider: 'github'
             },
             { redirectTo: window.location.href }
           )
