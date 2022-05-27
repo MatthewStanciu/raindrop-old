@@ -1,13 +1,14 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { UserProvider } from '@supabase/supabase-auth-helpers/react'
-import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import { UserContextProvider } from '@supabase/ui/dist/cjs/components/Auth/UserContext'
+import { supabase } from '../lib/supabase'
+import { AuthProvider } from '../lib/useAuth'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <UserProvider supabaseClient={supabaseClient}>
+    <UserContextProvider supabaseClient={supabase}>
       <Component {...pageProps} />
-    </UserProvider>
+    </UserContextProvider>
   )
 }
 
