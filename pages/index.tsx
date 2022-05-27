@@ -31,20 +31,19 @@ const Index = () => {
         }).then((res) => res.json())
       }
     )
+    if (user) {
+      router.replace('/dashboard')
+    }
     return () => {
       authListener?.unsubscribe()
     }
-  })
+  }, [user])
 
-  if (user && data) {
-    router.replace('/dashboard')
+  if (!user) {
+    return <SignIn />
   }
 
-  return (
-    <div>
-      {!user ? <SignIn /> : <div>{!data && !error && <p>Loading...</p>}</div>}
-    </div>
-  )
+  return <p>Loading...</p>
 }
 
 export default Index
