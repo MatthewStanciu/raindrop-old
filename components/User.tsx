@@ -3,7 +3,7 @@ import { useUser } from '@supabase/supabase-auth-helpers/react'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import isInOrg from '../lib/is-in-org'
-import { userIsInDb } from '../lib/manage-user'
+import { createUser, userIsInDb } from '../lib/manage-user'
 
 const User = () => {
   const { user } = useUser()
@@ -11,9 +11,18 @@ const User = () => {
   const [data, setData] = useState(null)
   const [isInDb, setIsInDb] = useState(false)
 
-  useEffect(() => {
-    userIsInDb(username).then((r) => setIsInDb(r))
+  if (typeof window === undefined) {
+    console.log('hi hi hi hi')
+    userIsInDb(username).then((r) => {
+      console.log(r)
+      setIsInDb(r)
+    })
+    if (!isInDb) {
+      createUser(username)
+    }
+  }
 
+  useEffect(() => {
     const loadData = async () => {
       const { data, error } = await supabaseClient
         .from('users')

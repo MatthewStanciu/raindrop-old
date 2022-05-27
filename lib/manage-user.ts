@@ -1,4 +1,5 @@
 import { supabaseClient } from '@supabase/supabase-auth-helpers/nextjs'
+import supabaseAdmin from './supabase-admin'
 
 export const userIsInDb = async (username: string): Promise<boolean> => {
   const users = await supabaseClient
@@ -10,7 +11,7 @@ export const userIsInDb = async (username: string): Promise<boolean> => {
 }
 
 export const createUser = async (username: string) => {
-  supabaseClient
+  supabaseAdmin
     .from('users')
     .insert([
       {

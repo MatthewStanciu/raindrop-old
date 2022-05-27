@@ -18,7 +18,7 @@ const SignIn = () => (
             {
               provider: 'github'
             },
-            { redirectTo: window.location.href }
+            { redirectTo: window.location.href + '/dashboard' }
           )
         }}
       >
