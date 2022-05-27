@@ -15,7 +15,6 @@ const Dashboard = ({ user }: { user: User }) => {
       <button
         className="max-w-fit rounded-lg border-2 border-white bg-white px-2 text-black"
         onClick={() => {
-          console.log('hi')
           supabase.auth.signOut()
           router.replace('/')
         }}

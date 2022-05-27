@@ -2,7 +2,6 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { UserContextProvider } from '@supabase/ui/dist/cjs/components/Auth/UserContext'
 import { supabase } from '../lib/supabase'
-import { AuthProvider } from '../lib/useAuth'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

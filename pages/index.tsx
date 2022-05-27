@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 import useSWR from 'swr'
 import SignIn from '../components/sign-in'
 import { supabase } from '../lib/supabase'
-import useAuth from '../lib/useAuth'
 
 const fetcher = (url: string, token: string) =>
   fetch(url, {
