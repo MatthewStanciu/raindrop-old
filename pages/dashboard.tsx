@@ -2,11 +2,17 @@ import { User } from '@supabase/supabase-js'
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import { useEffect } from 'react'
 import { supabase } from '../lib/supabase'
+import isInOrg from '../lib/is-in-org'
+import NotInOrg from '../components/not-in-org'
 
-const Dashboard = ({ user }: { user: User }) => {
+const Dashboard = ({ user, inOrg }: { user: User; inOrg: boolean }) => {
   const router = useRouter()
+
+  if (!inOrg) {
+    return <NotInOrg />
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-2 bg-black py-2 text-white">
       <Head>
@@ -39,7 +45,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     return { props: {}, redirect: { destination: '/', permanent: false } }
   }
 
-  return { props: { user } }
+  const inOrg = await isInOrg(user.user_metadata.user_name)
+
+  return { props: { user, inOrg } }
 }
 
 export default Dashboard
