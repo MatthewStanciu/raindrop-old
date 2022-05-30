@@ -5,7 +5,7 @@ import { supabase } from '../lib/supabase'
 const Nav = () => {
   const router = useRouter()
   return (
-    <nav className="w-full bg-gray-900 font-bold">
+    <nav className="w-full bg-gray-800 font-bold">
       <div className="container mx-auto flex items-center px-4 sm:px-14">
         <p>💧 Raindrop</p>
         <div className="grow" />
