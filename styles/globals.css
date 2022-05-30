@@ -4,6 +4,6 @@
 
 @layer components {
   .pill-button {
-    @apply my-2 flex transform flex-row items-center gap-1 rounded-full border-2 border-solid border-amber-500 px-2 py-1 font-bold transition hover:scale-105;
+    @apply my-2 flex transform flex-row items-center gap-1 rounded-full border-2 border-solid border-amber-500 px-2 py-1 text-sm font-bold transition hover:scale-105 sm:text-base;
   }
 }
