@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white;
+  }
+  code {
+    @apply rounded-sm bg-slate-200 px-1 font-mono text-amber-500 dark:bg-slate-700 dark:text-amber-500;
+  }
+}
 
 @layer components {
   .pill-button {
