@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { supabase } from '../lib/supabase'
 import isInOrg from '../lib/is-in-org'
 import NotInOrg from '../components/not-in-org'
+import Nav from '../components/nav'
 
 const Dashboard = ({ user, inOrg }: { user: User; inOrg: boolean }) => {
   const router = useRouter()
@@ -14,25 +15,22 @@ const Dashboard = ({ user, inOrg }: { user: User; inOrg: boolean }) => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-2 bg-black py-2 text-white">
+    <div className="flex min-h-screen flex-col gap-2 bg-black text-white">
       <Head>
         <title>💧 Raindrop</title>
       </Head>
-      <button
-        className="max-w-fit rounded-lg border-2 border-white bg-white px-2 text-black"
-        onClick={() => {
-          supabase.auth.signOut()
-          router.replace('/')
-        }}
-      >
-        Sign out
-      </button>
-      <div className="flex h-96 flex-col gap-4 overflow-y-auto sm:flex-row">
-        <div className="max-w-xs rounded bg-gray-800 before:bg-gray-800 sm:max-w-lg">
-          <p>user: {user.email}</p>
-          <pre className="whitespace-pre-wrap">
-            {JSON.stringify(user, null, 2)}
-          </pre>
+      <Nav />
+      <div className="flex flex-col items-center">
+        <h1 className="mb-6 text-center text-4xl font-bold">
+          User Data (Placeholder)
+        </h1>
+        <div className="flex h-96 flex-col gap-4 overflow-y-auto sm:flex-row">
+          <div className="max-w-xs rounded bg-gray-800 before:bg-gray-800 sm:max-w-lg">
+            <p>user: {user.email}</p>
+            <pre className="whitespace-pre-wrap">
+              {JSON.stringify(user, null, 2)}
+            </pre>
+          </div>
         </div>
       </div>
     </div>
